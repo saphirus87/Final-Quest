@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "playGround.h"
-//API :: Application Programming Interface
+//API :: Application Programming Interface//
 
 //=======================================================
 //					##  전역변수 ##
