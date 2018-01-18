@@ -1,0 +1,83 @@
+#include "stdafx.h"
+#include "aviator.h"
+
+
+aviator::aviator()
+{
+}
+
+
+aviator::~aviator()
+{
+
+}
+
+HRESULT aviator::init(const char* imageName, int x, int y)
+{
+	ship::init(imageName, x, y);
+
+	_missile = new missilePF;
+	_missile->init("missilePF", 30, 400);
+
+	return S_OK;
+}
+
+void aviator::release(void)
+{
+
+}
+
+void aviator::update(void)
+{
+	ship::update();
+
+	keyControl();
+
+	missileMove();
+}
+
+void aviator::render(void)
+{
+	ship::render();
+
+	missileDraw();
+}
+
+
+void aviator::keyControl(void)
+{
+	if (KEYMANAGER->isStayKeyDown('A'))
+	{
+		_angle -= 0.04f;
+		if (_angle <= 0) _angle += PI2;
+	}
+	if (KEYMANAGER->isStayKeyDown('D'))
+	{
+		_angle += 0.04f;
+		if (_angle >= PI2) _angle -= PI2;
+	}
+	if (KEYMANAGER->isStayKeyDown('W')) _speed += 0.04f;
+	if (KEYMANAGER->isStayKeyDown('S')) _speed -= 0.04f;
+
+	if (KEYMANAGER->isOnceKeyDown(VK_SPACE)) bulletFire();
+	if (KEYMANAGER->isOnceKeyDown('X')) missileFire();
+}
+
+void aviator::missileFire()
+{
+	float x = _x + cosf(_angle) * 50;
+	float y = _y + -sinf(_angle) * 50;
+
+	_missile->fire(x, y, _angle, 400);
+}
+
+void aviator::missileMove()
+{
+	_missile->update();
+}
+
+void aviator::missileDraw()
+{
+	_missile->render();
+}
+
