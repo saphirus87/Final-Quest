@@ -1,7 +1,5 @@
 #pragma once
 #include "gameNode.h"
-#include "starcraftScene.h"
-#include "selectScene.h"
 
 class playGround : public gameNode
 {

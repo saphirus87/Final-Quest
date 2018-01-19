@@ -44,7 +44,7 @@ void playGround::render(void)
 
 	SCENEMANAGER->render();
 	
-	SetTextColor(getMemDC(), RGB(255, 255, 255));
+	//SetTextColor(getMemDC(), RGB(255, 255, 255));
 	TIMEMANAGER->render(getMemDC());
 
 	//================== 이 아래는 손대지 마시오 ========================

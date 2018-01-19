@@ -32,8 +32,8 @@ HRESULT playerManager::init(const char* imageName, string strKey, float x, float
 
 	_player = IMAGEMANAGER->findImage(imageName);
 
-	_hpBar = new progressBar;
-	_hpBar->init(_string, _rc.left, _rc.bottom,)
+	//_hpBar = new progressBar;
+	//_hpBar->init(_string, _rc.left, _rc.bottom,)
 
 	return S_OK;
 }
