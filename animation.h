@@ -1,8 +1,6 @@
 #pragma once
 #include <vector>
 
-class image;
-
 class animation
 {
 public:
@@ -33,7 +31,6 @@ public:
 	animation();
 	~animation();
 
-	HRESULT init(BOOL allInit);
 	HRESULT init(int totalW, int totalH, int frameW, int frameH);
 	void release(void);
 
@@ -54,16 +51,12 @@ public:
 	void stop(void);
 	void pause(void);
 	void resume(void);
-	void setAnotherAnimation(image* img, int startFrameNum, int endFrameNum, BOOL isStart = FALSE, BOOL isReverse = FALSE, BOOL isLoop = FALSE);
 
 	inline BOOL isPlay(void) { return _play; }
 	inline POINT getFramePos(void) { return _frameList[_playList[_nowPlayIndex]]; }
 	inline int getFrameWidth(void) { return _frameWidth; }
 	inline int getFrameHeight(void) { return _frameHeight; }
-	inline int getCurFramePos(void) { return _playList[_nowPlayIndex]; }
-	inline int getCurPlayIndex(void) { return _nowPlayIndex; }
-	inline int getPlayListSize(void) { return _playList.size(); }
-	inline void resetPlayIndex(void) { _nowPlayIndex = 0; }
-	inline void setPlayIndex(int setPlayIndex) { _nowPlayIndex = setPlayIndex; }
+
+
 };
 
