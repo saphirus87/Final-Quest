@@ -31,17 +31,11 @@
     <Filter Include="2DGameFramework\image">
       <UniqueIdentifier>{efeeb4a5-f3de-4942-a317-21258d10129e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\bullets">
-      <UniqueIdentifier>{c0baca9e-5efa-4ae8-a7df-08910ac1b783}</UniqueIdentifier>
-    </Filter>
     <Filter Include="2DGameFramework\progressBar">
       <UniqueIdentifier>{f316504a-bdda-4a8d-b01b-87142c0dfff6}</UniqueIdentifier>
     </Filter>
     <Filter Include="2DGameFramework\txtData">
       <UniqueIdentifier>{6427a303-db83-46d4-9153-174a59ebbd5c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="playGround\pixelCollision">
-      <UniqueIdentifier>{67274f68-7942-4f15-bc33-32686e9e30b4}</UniqueIdentifier>
     </Filter>
     <Filter Include="2DGameFramework\timer">
       <UniqueIdentifier>{81a1ecf0-c5d4-4d38-aff0-88d627da739d}</UniqueIdentifier>
@@ -52,9 +46,6 @@
     <Filter Include="2DGameFramework\effect">
       <UniqueIdentifier>{d5d4bd3c-2dec-49d9-bcb4-10db4f4b59c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="playGround\starScene">
-      <UniqueIdentifier>{606ffabe-2cb9-4762-ab42-ff531187ff1e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="2DGameFramework\button">
       <UniqueIdentifier>{fdd9079e-654a-4eca-b42b-ccdc2f90c269}</UniqueIdentifier>
     </Filter>
@@ -63,6 +54,18 @@
     </Filter>
     <Filter Include="2DGameFramework\action">
       <UniqueIdentifier>{b3e765fe-3f62-4682-9f1a-6ee96401a17c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\scene">
+      <UniqueIdentifier>{606ffabe-2cb9-4762-ab42-ff531187ff1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\player">
+      <UniqueIdentifier>{dc7fbff3-7701-49ec-a34d-de799c955f2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\enemy">
+      <UniqueIdentifier>{aa01b56a-9784-4507-a8c6-5b31e4f9ca7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\stage">
+      <UniqueIdentifier>{4f2423f3-ac11-4e03-9b21-9d509e2668e8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -108,17 +111,11 @@
     <ClInclude Include="imageManager.h">
       <Filter>2DGameFramework\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="bullets.h">
-      <Filter>playGround\bullets</Filter>
-    </ClInclude>
     <ClInclude Include="progressBar.h">
       <Filter>2DGameFramework\progressBar</Filter>
     </ClInclude>
     <ClInclude Include="txtData.h">
       <Filter>2DGameFramework\txtData</Filter>
-    </ClInclude>
-    <ClInclude Include="pixelCollision.h">
-      <Filter>playGround\pixelCollision</Filter>
     </ClInclude>
     <ClInclude Include="soundManager.h">
       <Filter>2DGameFramework\Manager</Filter>
@@ -132,9 +129,6 @@
     <ClInclude Include="animation.h">
       <Filter>2DGameFramework\animation</Filter>
     </ClInclude>
-    <ClInclude Include="animationTest.h">
-      <Filter>playGround</Filter>
-    </ClInclude>
     <ClInclude Include="effect.h">
       <Filter>2DGameFramework\effect</Filter>
     </ClInclude>
@@ -143,18 +137,6 @@
     </ClInclude>
     <ClInclude Include="iniDataManager.h">
       <Filter>2DGameFramework\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="starcraftScene.h">
-      <Filter>playGround\starScene</Filter>
-    </ClInclude>
-    <ClInclude Include="ship.h">
-      <Filter>playGround\starScene</Filter>
-    </ClInclude>
-    <ClInclude Include="battle.h">
-      <Filter>playGround\starScene</Filter>
-    </ClInclude>
-    <ClInclude Include="selectScene.h">
-      <Filter>playGround\starScene</Filter>
     </ClInclude>
     <ClInclude Include="sceneManager.h">
       <Filter>2DGameFramework\Manager</Filter>
@@ -168,14 +150,29 @@
     <ClInclude Include="action.h">
       <Filter>2DGameFramework\action</Filter>
     </ClInclude>
-    <ClInclude Include="battle2.h">
-      <Filter>playGround\starScene</Filter>
+    <ClInclude Include="playerManager.h">
+      <Filter>playGround\player</Filter>
     </ClInclude>
-    <ClInclude Include="space.h">
-      <Filter>playGround\starScene</Filter>
+    <ClInclude Include="enemy.h">
+      <Filter>playGround\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="shipManager.h">
-      <Filter>playGround\starScene</Filter>
+    <ClInclude Include="enemyManager.h">
+      <Filter>playGround\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="stageManager.h">
+      <Filter>playGround\stage</Filter>
+    </ClInclude>
+    <ClInclude Include="characterSelectScene.h">
+      <Filter>playGround\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene.h">
+      <Filter>playGround\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="gameStartScene.h">
+      <Filter>playGround\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="gameStage.h">
+      <Filter>playGround\stage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -206,17 +203,11 @@
     <ClCompile Include="imageManager.cpp">
       <Filter>2DGameFramework\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="bullets.cpp">
-      <Filter>playGround\bullets</Filter>
-    </ClCompile>
     <ClCompile Include="progressBar.cpp">
       <Filter>2DGameFramework\progressBar</Filter>
     </ClCompile>
     <ClCompile Include="txtData.cpp">
       <Filter>2DGameFramework\txtData</Filter>
-    </ClCompile>
-    <ClCompile Include="pixelCollision.cpp">
-      <Filter>playGround\pixelCollision</Filter>
     </ClCompile>
     <ClCompile Include="soundManager.cpp">
       <Filter>2DGameFramework\Manager</Filter>
@@ -230,9 +221,6 @@
     <ClCompile Include="animation.cpp">
       <Filter>2DGameFramework\animation</Filter>
     </ClCompile>
-    <ClCompile Include="animationTest.cpp">
-      <Filter>playGround</Filter>
-    </ClCompile>
     <ClCompile Include="effect.cpp">
       <Filter>2DGameFramework\effect</Filter>
     </ClCompile>
@@ -241,18 +229,6 @@
     </ClCompile>
     <ClCompile Include="iniDataManager.cpp">
       <Filter>2DGameFramework\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="starcraftScene.cpp">
-      <Filter>playGround\starScene</Filter>
-    </ClCompile>
-    <ClCompile Include="ship.cpp">
-      <Filter>playGround\starScene</Filter>
-    </ClCompile>
-    <ClCompile Include="battle.cpp">
-      <Filter>playGround\starScene</Filter>
-    </ClCompile>
-    <ClCompile Include="selectScene.cpp">
-      <Filter>playGround\starScene</Filter>
     </ClCompile>
     <ClCompile Include="sceneManager.cpp">
       <Filter>2DGameFramework\Manager</Filter>
@@ -266,14 +242,29 @@
     <ClCompile Include="action.cpp">
       <Filter>2DGameFramework\action</Filter>
     </ClCompile>
-    <ClCompile Include="battle2.cpp">
-      <Filter>playGround\starScene</Filter>
+    <ClCompile Include="playerManager.cpp">
+      <Filter>playGround\player</Filter>
     </ClCompile>
-    <ClCompile Include="space.cpp">
-      <Filter>playGround\starScene</Filter>
+    <ClCompile Include="enemy.cpp">
+      <Filter>playGround\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="shipManager.cpp">
-      <Filter>playGround\starScene</Filter>
+    <ClCompile Include="enemyManager.cpp">
+      <Filter>playGround\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="stageManager.cpp">
+      <Filter>playGround\stage</Filter>
+    </ClCompile>
+    <ClCompile Include="characterSelectScene.cpp">
+      <Filter>playGround\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene.cpp">
+      <Filter>playGround\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStartScene.cpp">
+      <Filter>playGround\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStage.cpp">
+      <Filter>playGround\stage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
