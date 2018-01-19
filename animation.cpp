@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "animation.h"
-#include "image.h"
+
 
 animation::animation()
 	: _frameNum(0),
@@ -18,31 +18,6 @@ animation::animation()
 animation::~animation()
 {
 
-}
-
-HRESULT animation::init(BOOL allInit)
-{
-	if (allInit)
-	{
-		_frameNum = 0;
-		_frameWidth = 0;
-		_frameHeight = 0;
-		_loop = FALSE;
-		_frameUpdateSec = 0;
-		_elapsedSec = 0;
-		_nowPlayIndex = 0;
-		_play = FALSE;
-		_frameList.clear();
-		_playList.clear();
-	}
-	else
-	{
-		_nowPlayIndex = 0;
-		_play = FALSE;
-	}
-
-
-	return S_OK;
 }
 
 HRESULT animation::init(int totalW, int totalH, int frameW, int frameH)
@@ -314,13 +289,4 @@ void animation::pause(void)
 void animation::resume(void)
 {
 	_play = TRUE;
-}
-
-void animation::setAnotherAnimation(image* img, int startFrameNum, int endFrameNum, BOOL isStart, BOOL isReverse, BOOL isLoop)
-{
-	init(true);
-	init(img->getWidth(), img->getHeight(), img->getFrameWidth(), img->getFrameHeight());
-	setPlayFrame(19, 31, isReverse, isLoop);
-	setFPS(1);
-	if (isStart) start();
 }
