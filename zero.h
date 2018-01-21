@@ -2,6 +2,8 @@
 #include "player.h"
 #include <vector>
 
+// Âm
+
 enum ZERO_STATE
 {
 	ZERO_AT1,
