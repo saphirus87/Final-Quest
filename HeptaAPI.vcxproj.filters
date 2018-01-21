@@ -183,6 +183,15 @@
     <ClInclude Include="PlayerManager.h">
       <Filter>playGround\player</Filter>
     </ClInclude>
+    <ClInclude Include="redSnail.h">
+      <Filter>playGround\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="spoa.h">
+      <Filter>playGround\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraManager.h">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -283,6 +292,15 @@
     </ClCompile>
     <ClCompile Include="PlayerManager.cpp">
       <Filter>playGround\player</Filter>
+    </ClCompile>
+    <ClCompile Include="redSnail.cpp">
+      <Filter>playGround\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="spoa.cpp">
+      <Filter>playGround\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraManager.cpp">
+      <Filter>2DGameFramework\Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

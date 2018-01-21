@@ -25,6 +25,8 @@ HRESULT characterSelectScene::init()
 	_indexCount = 0; //프레임속도 조절용
 
 	SOUNDMANAGER->play("셀렉트아나운서");
+
+	CAMERAMANAGER->addImage("셀렉트카메라", 1280, 720);
 	return S_OK;
 }
 void characterSelectScene::release()
@@ -42,19 +44,23 @@ void characterSelectScene::update()
 }
 void characterSelectScene::render()	
 {
+
+	
 	if (_selectUnit == 0)
 	{
-		IMAGEMANAGER->alphaRender("셀렉트씬록맨", getMemDC(), _alpha);
+		IMAGEMANAGER->alphaRender("셀렉트씬록맨", CAMERAMANAGER->findImage("셀렉트카메라")->getMemDC(), 255);
 	}
 	else if (_selectUnit == 1)
 	{
-		IMAGEMANAGER->alphaRender("셀렉트씬제로", getMemDC(), _alpha);
+		IMAGEMANAGER->alphaRender("셀렉트씬제로", CAMERAMANAGER->findImage("셀렉트카메라")->getMemDC(), 255);
 	}
 
 
-	IMAGEMANAGER->findImage("셀렉트얼티메이트록맨")->frameRender(getMemDC(), 50, WINSIZEY - 300);
+	IMAGEMANAGER->findImage("셀렉트얼티메이트록맨")->frameRender(CAMERAMANAGER->findImage("셀렉트카메라")->getMemDC(), 50, WINSIZEY - 300);
 
-	IMAGEMANAGER->findImage("셀렉트제로")->frameRender(getMemDC(), WINSIZEX - 150, WINSIZEY - 300);
+	IMAGEMANAGER->findImage("셀렉트제로")->frameRender(CAMERAMANAGER->findImage("셀렉트카메라")->getMemDC(), WINSIZEX - 150, WINSIZEY - 300);
+
+	CAMERAMANAGER->findImage("셀렉트카메라")->alpharender(getMemDC(), 0, 0, 1280, 720, 0, 0, 1, _alpha);
 }
 
 void characterSelectScene::charactorInput()
