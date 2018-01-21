@@ -69,9 +69,6 @@ void enemy::update(void)
 	if (_distance <= _find && _chaseX < _x)
 	{
 		_LRchange = true;
-
-
-
 	}
 	if (_distance <= _find && _chaseX > _x)
 	{
