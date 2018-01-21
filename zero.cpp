@@ -161,34 +161,34 @@ void zero::update()
 	}
 }
 
-void zero::render()
+void zero::render(HDC hdc)
 {
-	RectangleMake(getMemDC(), _rc.left, _rc.top, _rc.right, _rc.bottom);
+	RectangleMake(hdc, _rc.left, _rc.top, _rc.right, _rc.bottom);
 	switch (zero_state)
 	{
 	case ZERO_AT1:
-		IMAGEMANAGER->findImage("zero_at1")->frameRender(getMemDC(),_x,300,
+		IMAGEMANAGER->findImage("zero_at1")->frameRender(hdc,_x,300,
 			IMAGEMANAGER->findImage("zero_at1")->getFrameX(), IMAGEMANAGER->findImage("zero_at1")->getFrameY());
 		break;
 	case ZERO_HIT:
-		IMAGEMANAGER->findImage("zero_hit")->frameRender(getMemDC(), _x, _y,
+		IMAGEMANAGER->findImage("zero_hit")->frameRender(hdc, _x, _y,
 			IMAGEMANAGER->findImage("zero_hit")->getFrameX(), IMAGEMANAGER->findImage("zero_hit")->getFrameY());
 		break;
 	case ZERO_SKILL:
-		IMAGEMANAGER->findImage("zero_skill")->frameRender(getMemDC(), _x,_y,
+		IMAGEMANAGER->findImage("zero_skill")->frameRender(hdc, _x,_y,
 			IMAGEMANAGER->findImage("zero_skill")->getFrameX(), IMAGEMANAGER->findImage("zero_skill")->getFrameY());
 		break;
 	case ZERO_LEFT:
-		IMAGEMANAGER->findImage("zero_move")->frameRender(getMemDC(), _x, 300,
+		IMAGEMANAGER->findImage("zero_move")->frameRender(hdc, _x, 300,
 			IMAGEMANAGER->findImage("zero_move")->getFrameX(), IMAGEMANAGER->findImage("zero_move")->getFrameY());
 		break;
 		break;
 	case ZERO_RIGHT:
-		IMAGEMANAGER->findImage("zero_move")->frameRender(getMemDC(), _x, 300,
+		IMAGEMANAGER->findImage("zero_move")->frameRender(hdc, _x, 300,
 			IMAGEMANAGER->findImage("zero_move")->getFrameX(), IMAGEMANAGER->findImage("zero_move")->getFrameY());
 		break;
 	case ZERO_NONE:
-		IMAGEMANAGER->findImage("zero_none")->frameRender(getMemDC(), _x, 300,
+		IMAGEMANAGER->findImage("zero_none")->frameRender(hdc, _x, 300,
 			IMAGEMANAGER->findImage("zero_none")->getFrameX(), IMAGEMANAGER->findImage("zero_none")->getFrameY());
 		break;
 	default:
