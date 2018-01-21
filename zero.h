@@ -40,7 +40,7 @@ public:
 	HRESULT init();
 	void release();
 	void update();
-	void render(HDC hdc);
+	void render();
 
 	void frameUpdate();
 	void move();
