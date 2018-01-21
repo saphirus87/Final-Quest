@@ -28,8 +28,9 @@ private:
 	int atk_combo;
 	int count;
 	int move_count;
+	int stay_count;
 	int at1_count;
-	int at2_count;
+	bool isAttack;
 	float at3_count;
 	float startCount, endCount;
 public:
