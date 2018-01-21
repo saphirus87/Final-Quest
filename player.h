@@ -65,6 +65,12 @@ public:
 	void playerMove();		//움직임 함수
 	void playerDraw();		//그려주는 함수
 
+	void setPlayerX(float x) { _x = x; }			//셋 엑스
+	float getPlayerX() { return _x; }				//겟 엑스
+
+	void setPlayerY(float y) { _y = y; }			//셋 와이
+	float getPlayerY() { return _y; }				//겟 와이
+
 	player();
 	~player();
 };

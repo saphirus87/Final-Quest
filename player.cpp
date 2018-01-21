@@ -132,7 +132,7 @@ void player::playerMove()
 		_state = PLAYER_IDLE;
 	}
 
-	//점프
+	//점프 햇뉘?
 	if (_isJump)
 	{
 		_state = PLAYER_JUMP;
