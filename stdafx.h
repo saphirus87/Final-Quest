@@ -22,11 +22,12 @@
 #include "effectManager.h"
 #include "iniDataManager.h"
 #include "sceneManager.h"
-#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console") 
+//#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console") 
 #include "utils.h"
 #include "collision.h"
 #include "txtData.h"
 #include "database.h"
+#include "CameraManager.h"
 
 using namespace std;
 using namespace HEPTA_UTIL;
@@ -49,6 +50,7 @@ using namespace HEPTA_UTIL;
 #define TIMEMANAGER		timeManager::getSingleton()
 #define EFFECTMANAGER	effectManager::getSingleton()
 #define SCENEMANAGER	sceneManager::getSingleton()
+#define CAMERAMANAGER	CameraManager::getSingleton()
 #define TXTDATA			txtData::getSingleton()
 #define INIDATA			iniDataManager::getSingleton()
 #define DATABASE		database::getSingleton()

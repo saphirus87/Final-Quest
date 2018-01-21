@@ -72,6 +72,7 @@ public:
 	
 	//빈 비트맵 이미지 초기화
 	HRESULT init(int width, int height);
+	HRESULT init(int width, int height, BOOL trans, COLORREF transColor);
 	//파일로부터 이미지 초기화
 	HRESULT init(const char* fileName, int width, int height,
 		BOOL trans = FALSE, COLORREF transColor = FALSE);
@@ -106,6 +107,9 @@ public:
 	void alphaRender(HDC hdc, BYTE alpha);
 	void alphaRender(HDC hdc, int destX, int destY, BYTE alpha);
 	void alphaRender(HDC hdc, int destX, int destY, int sourX, int sourY, int sourWidth, int sourHeight, BYTE alpha);
+
+	//줌가능 카메라	그려줄곳, 그려줄 위치, 그려줄 크기, 카메라위치, 카메라 크기(크기가 크면 축소)
+	void alpharender(HDC hdc, int destX, int destY, int destWidth, int destHeight, int sourX, int sourY, float Nx, BYTE alpha);
 
 	//애니메이션 렌더링 (뿌려줄 DC, 뿌려줄 위치 X, Y(left, top) 재생하고픈 애니메이션)
 	void aniRender(HDC hdc, int destX, int destY, animation* ani);

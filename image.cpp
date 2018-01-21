@@ -70,6 +70,56 @@ HRESULT image::init(int width, int height)
 	return S_OK;
 }
 
+HRESULT image::init(int width, int height,
+	BOOL trans, COLORREF transColor)
+{
+	//이미지 정보가 뭔가있다면 해제해줘라
+	if (_imageInfo != NULL) release();
+
+	//DC영역을 사용하고싶을때는 가져온다
+	HDC hdc = GetDC(_hWnd);
+
+	_imageInfo = new IMAGE_INFO;
+	_imageInfo->loadType = LOAD_EMPTY;
+	_imageInfo->resID = 0;
+	_imageInfo->hMemDC = CreateCompatibleDC(hdc);		//빈 DC영역 생성
+	_imageInfo->hBit = (HBITMAP)CreateCompatibleBitmap(hdc, width, height); //빈 비트맵 이미지 생성
+	_imageInfo->hOBit = (HBITMAP)SelectObject(_imageInfo->hMemDC, _imageInfo->hBit);
+	_imageInfo->width = width;		//이미지 크기 값 대입 받는다
+	_imageInfo->height = height;
+
+	_fileName = NULL;
+
+	_trans = trans;
+	_transColor = transColor;
+
+	//알파블렌드 설정
+	_blendFunc.BlendFlags = 0;
+	_blendFunc.AlphaFormat = 0;
+	_blendFunc.BlendOp = AC_SRC_OVER;
+
+	_blendImage = new IMAGE_INFO;
+	_blendImage->loadType = LOAD_EMPTY;
+	_blendImage->resID = 0;
+	_blendImage->hMemDC = CreateCompatibleDC(hdc);
+	_blendImage->hBit = (HBITMAP)CreateCompatibleBitmap(hdc, width, height);
+	_blendImage->hOBit = (HBITMAP)SelectObject(_blendImage->hMemDC, _blendImage->hBit);
+	_blendImage->width = width;
+	_blendImage->height = height;
+
+	//비트맵이 생성이 되지않았다면
+	if (_imageInfo->hBit == NULL)
+	{
+		//메모리 해제 시키고
+		release();
+		return E_FAIL;	//실패했다고 알려라
+	}
+
+	//가져온 DC를 해제
+	ReleaseDC(_hWnd, hdc);
+
+	return S_OK;
+}
 //파일로부터 이미지 초기화
 HRESULT image::init(const char* fileName, int width, int height,
 	BOOL trans, COLORREF transColor)
@@ -620,6 +670,33 @@ void image::alphaRender(HDC hdc, int destX, int destY, int sourX, int sourY, int
 	//오늘과제 1
 	//알파 공부하라고 주는 것!
 
+}
+
+//줌가능 카메라	그려줄곳, 그려줄 위치, 그려줄 크기, 카메라위치, 카메라 배율, 알파
+void image::alpharender(HDC hdc, int destX, int destY, int destWidth, int destHeight, int sourX, int sourY, float Nx, BYTE alpha)
+{
+	//실제 이미지 소스에 알파블렌드를 접목시켜주는 함수 == BYTE는 알파수치 0 ~ 255
+	_blendFunc.SourceConstantAlpha = alpha;
+
+	if (_trans)
+	{
+		//알파 먹일 이미지를 복사한다
+		GdiTransparentBlt(_blendImage->hMemDC, sourX, sourX, destWidth / Nx,
+			destHeight / Nx, hdc, destX, destY, destWidth, destHeight, _transColor);
+		//BitBlt(_blendImage->hMemDC, sourX, sourY, destWidth, destHeight, hdc, destX, destY, SRCCOPY);
+		//복사해온 이미지에서 트랜스컬러를 벗겨낸다
+		GdiTransparentBlt(_blendImage->hMemDC, 0, 0, _blendImage->width,
+			_blendImage->height, _imageInfo->hMemDC, 0, 0, _imageInfo->width, _imageInfo->height, _transColor);
+		//벗겨낸 최종이미지에 알파블렌드를 적용시킨다
+		//복사하는 곳, 복사해오는 곳을 유심히 보기 바란다. 북두칠성 충성충성^^7
+		AlphaBlend(hdc, destX, destY, destWidth,
+			destHeight, _blendImage->hMemDC, sourX, sourY, destWidth / Nx, destHeight / Nx, _blendFunc);
+	}
+	else
+	{
+		AlphaBlend(hdc, destX, destY, destWidth,
+			destHeight, _blendImage->hMemDC, sourX, sourY, destWidth / Nx, destHeight / Nx, _blendFunc);
+	}
 }
 
 void image::aniRender(HDC hdc, int destX, int destY, animation* ani)
