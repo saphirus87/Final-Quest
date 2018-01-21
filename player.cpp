@@ -68,26 +68,13 @@ void player::update()
 	//프레임을 돌리자
 	_frame++;					//프레임 카운트
 
-	if (_frame % 5 == 0)
-	{
-		if (_currentFrameX >= _player->getMaxFrameX())
-		{
-			_currentFrameX = 0;
-		}
-
-		_player->setFrameX(_currentFrameX);
-		_currentFrameX++;
-
-		_frame = 0;
-	}
-
-	_hpBar->setX(_rc.left);					//플레이어 아래에다가 체력바 그려주기
-	_hpBar->setY(_rc.bottom);				//플레이어 아래에다가 체력바 그려주기
-	_hpBar->setGauge(_currentHP, _maxHP);	//플레이어 아래에다가 체력바 그려주기
-	_hpBar->update();						//플레이어 아래에다가 체력바 그려주기
+	//_hpBar->setX(_rc.left);					//플레이어 아래에다가 체력바 그려주기
+	//_hpBar->setY(_rc.bottom);				//플레이어 아래에다가 체력바 그려주기
+	//_hpBar->setGauge(_currentHP, _maxHP);	//플레이어 아래에다가 체력바 그려주기
+	//_hpBar->update();						//플레이어 아래에다가 체력바 그려주기
 	
-	playerAtk();							//플레이어 기본공격 함수
-	playerMove();							//플레이어 움직임 함수					
+	//playerMove();							//플레이어 움직임 함수					
+	//playerAtk();							//플레이어 기본공격 함수
 }
 
 void player::render()
@@ -174,7 +161,7 @@ void player::playerMove()
 
 //그려주는 함수
 void player::playerDraw()
-{
+{	
 	//플레이어 그려주기
 	_player->frameRender(getMemDC(), _rc.left, _rc.top, _currentFrameX, _currentFrameY);
 

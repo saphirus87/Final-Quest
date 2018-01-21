@@ -22,6 +22,7 @@
 #include "effectManager.h"
 #include "iniDataManager.h"
 #include "sceneManager.h"
+#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console") 
 #include "utils.h"
 #include "collision.h"
 #include "txtData.h"

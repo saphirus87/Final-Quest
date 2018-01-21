@@ -174,6 +174,15 @@
     <ClInclude Include="player.h">
       <Filter>playGround\player</Filter>
     </ClInclude>
+    <ClInclude Include="zero.h">
+      <Filter>playGround\player</Filter>
+    </ClInclude>
+    <ClInclude Include="ultimate.h">
+      <Filter>playGround\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerManager.h">
+      <Filter>playGround\player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -264,6 +273,15 @@
       <Filter>playGround\stage</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
+      <Filter>playGround\player</Filter>
+    </ClCompile>
+    <ClCompile Include="ultimate.cpp">
+      <Filter>playGround\player</Filter>
+    </ClCompile>
+    <ClCompile Include="zero.cpp">
+      <Filter>playGround\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerManager.cpp">
       <Filter>playGround\player</Filter>
     </ClCompile>
   </ItemGroup>

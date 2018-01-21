@@ -98,6 +98,7 @@
     <ClInclude Include="iniDataManager.h" />
     <ClInclude Include="keyManager.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="playGround.h" />
     <ClInclude Include="progressBar.h" />
     <ClInclude Include="randomFunction.h" />
@@ -111,7 +112,9 @@
     <ClInclude Include="timeManager.h" />
     <ClInclude Include="timer.h" />
     <ClInclude Include="txtData.h" />
+    <ClInclude Include="ultimate.h" />
     <ClInclude Include="utils.h" />
+    <ClInclude Include="zero.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="action.cpp" />
@@ -133,6 +136,7 @@
     <ClCompile Include="iniDataManager.cpp" />
     <ClCompile Include="keyManager.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="playGround.cpp" />
     <ClCompile Include="progressBar.cpp" />
     <ClCompile Include="sceneManager.cpp" />
@@ -145,8 +149,10 @@
     <ClCompile Include="timeManager.cpp" />
     <ClCompile Include="timer.cpp" />
     <ClCompile Include="txtData.cpp" />
+    <ClCompile Include="ultimate.cpp" />
     <ClCompile Include="utils.cpp" />
     <ClCompile Include="winMain.cpp" />
+    <ClCompile Include="zero.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
