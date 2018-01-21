@@ -13,12 +13,16 @@ private:
 	typedef vector<enemy*>::iterator viRedSnail;
 
 	typedef vector<enemy*> vSpoa;
+
+	typedef vector<enemy*> AllEnemy;
+	
 private:
 
 	vRedSnail  _vRedSnail;
 	viRedSnail _viRedSnail;
 	redSnail* _snail;
 
+	AllEnemy _enemys;
 
 	vSpoa _vSpoa;
 	spoa* _spoa;
@@ -31,6 +35,8 @@ public:
 	void release(void);
 	void update(void);
 	void render(HDC hdc);
+
+	void chaseplayer(int x, int y);
 };
 
 

@@ -66,10 +66,13 @@ public:
 	void playerDraw();		//弊妨林绰 窃荐
 
 	void setPlayerX(float x) { _x = x; }			//悸 竣胶
-	float getPlayerX() { return _x; }				//百 竣胶
+	float* getPlayerX() { return &_x; }				//百 竣胶
 
 	void setPlayerY(float y) { _y = y; }			//悸 客捞
-	float getPlayerY() { return _y; }				//百 客捞
+	float* getPlayerY() { return &_y; }				//百 客捞
+
+	void Gravityzero() { _gravity = 0; }
+	void Jumpzero() { _jumpPower = 0; }
 
 	player();
 	~player();
