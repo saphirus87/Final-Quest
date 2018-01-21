@@ -29,6 +29,7 @@ private:
 	int _x, _y;
 	float _width;
 
+	string _strKey;
 	image* _progressBarTop;
 	image* _progressBarBottom;
 
@@ -36,7 +37,7 @@ public:
 	progressBar();
 	~progressBar();
 
-	HRESULT init(int x, int y, int width, int height);
+	HRESULT init(string strKey, int x, int y, int width, int height);
 	void release();
 	void update();
 	void render();

@@ -150,9 +150,6 @@
     <ClInclude Include="action.h">
       <Filter>2DGameFramework\action</Filter>
     </ClInclude>
-    <ClInclude Include="playerManager.h">
-      <Filter>playGround\player</Filter>
-    </ClInclude>
     <ClInclude Include="enemy.h">
       <Filter>playGround\enemy</Filter>
     </ClInclude>
@@ -173,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="gameStage.h">
       <Filter>playGround\stage</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>playGround\player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -242,9 +242,6 @@
     <ClCompile Include="action.cpp">
       <Filter>2DGameFramework\action</Filter>
     </ClCompile>
-    <ClCompile Include="playerManager.cpp">
-      <Filter>playGround\player</Filter>
-    </ClCompile>
     <ClCompile Include="enemy.cpp">
       <Filter>playGround\enemy</Filter>
     </ClCompile>
@@ -265,6 +262,9 @@
     </ClCompile>
     <ClCompile Include="gameStage.cpp">
       <Filter>playGround\stage</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>playGround\player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

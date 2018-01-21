@@ -2,7 +2,7 @@
 #include "gameNode.h"
 #include "progressBar.h"
 
-class playerManager : public gameNode
+class player : public gameNode
 {
 protected:
 	progressBar* _hpBar;		//플레이어 체력
@@ -48,7 +48,7 @@ public:
 	void playerMove();		//움직임 함수
 	void playerDraw();		//그려주는 함수
 
-	playerManager();
-	~playerManager();
+	player();
+	~player();
 };
 

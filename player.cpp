@@ -1,20 +1,20 @@
 #include "stdafx.h"
-#include "playerManager.h"
+#include "player.h"
 
 
-playerManager::playerManager()
+player::player()
 {
 }
 
 
-playerManager::~playerManager()
+player::~player()
 {
 
 }
 
 //초기화를 하자!
 //								이미지 키값        , 이미지 파일   , 렉트좌표 x,y    ,               체력           , 체력바 가로길이, 체력바 세로길이
-HRESULT playerManager::init(const char* imageName, string strKey, float x, float y, float currentHP, float maxHP, float width, float height)
+HRESULT player::init(const char* imageName, string strKey, float x, float y, float currentHP, float maxHP, float width, float height)
 {
 	_strkey = strKey;						//이미지 키값
 	_currentHP = currentHP;					//체력
@@ -50,12 +50,12 @@ HRESULT playerManager::init(const char* imageName, string strKey, float x, float
 	return S_OK;
 }
 
-void playerManager::release()
+void player::release()
 {
 
 }
 
-void playerManager::update()
+void player::update()
 {
 	//프레임을 돌리자
 	_frame++;					//프레임 카운트
@@ -82,19 +82,19 @@ void playerManager::update()
 	playerMove();							//플레이어 움직임 함수					
 }
 
-void playerManager::render()
+void player::render()
 {
 	playerDraw();							//그려주는 함수
 }
 
 //공격 함수
-void playerManager::playerAtk()
+void player::playerAtk()
 {
 
 }
 
 //움직임 함수
-void playerManager::playerMove()
+void player::playerMove()
 {
 	//플레이어 왼쪽 이동
 	if (KEYMANAGER->isStayKeyDown(VK_LEFT))
@@ -134,7 +134,7 @@ void playerManager::playerMove()
 
 
 //그려주는 함수
-void playerManager::playerDraw()
+void player::playerDraw()
 {
 	//플레이어 그려주기
 	_player->frameRender(getMemDC(), _rc.left, _rc.top, _currentFrameX, _currentFrameY);
