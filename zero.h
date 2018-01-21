@@ -1,6 +1,7 @@
 #pragma once
 #include "player.h"
 #include <vector>
+
 enum ZERO_STATE
 {
 	ZERO_AT1,

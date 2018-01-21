@@ -15,6 +15,18 @@ HRESULT zero::init()
 {
 	player::init();
 
+	IMAGEMANAGER->addFrameImage("zero_appearance", "images/zero_appearance.bmp", 1330, 170, 19, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("zero_move", "images/zero_move.bmp", 800, 100, 16, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("zero_none", "images/zero_none.bmp", 300, 100, 6, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("zero_jump_up", "images/zero_jump_up.bmp", 350, 150, 7, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("zero_jump_down", "images/zero_jump_down.bmp", 400, 180, 8, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("zero_at1", "images/zero_at1.bmp", 696, 100, 8, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("zero_at2", "images/zero_at2.bmp", 824, 120, 8, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("zero_at3", "images/zero_at3.bmp", 1300, 200, 13, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("zero_dash_on", "images/zero_dash_on.bmp", 560, 100, 8, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("zero_dash_off", "images/zero_dash_off.bmp", 200, 100, 4, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("zero_hit", "images/zero_hit.bmp", 233, 140, 4, 2, true, RGB(255, 0, 255));
+
 	return S_OK;
 }
 
@@ -45,7 +57,7 @@ void zero::update()
 	}
 
 
-	if (KEYMANAGER->isStayKeyDown(VK_RIGHT))
+	if (KEYMANAGER->isOnceKeyDown(VK_RIGHT))
 	{
 		zero_state = ZERO_RIGHT;
 		IMAGEMANAGER->findImage("zero_move")->setFrameY(0);

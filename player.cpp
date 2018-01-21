@@ -51,9 +51,9 @@ HRESULT player::init()
 	//_player = IMAGEMANAGER->findImage(imageName);
 
 	//플레이어 체력바 (체력바 키값, 체력바 위치, 체력바 길이)
-	_hpBar = new progressBar;
-	_hpBar->init(_strkey, _rc.left, _rc.bottom, _width, _height);
-	_hpBar->setGauge(_currentHP, _maxHP);
+	//_hpBar = new progressBar;
+	//_hpBar->init(_strkey, _rc.left, _rc.bottom, _width, _height);
+	//_hpBar->setGauge(_currentHP, _maxHP);
 
 	return S_OK;
 }
