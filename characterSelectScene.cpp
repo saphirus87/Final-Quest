@@ -23,6 +23,8 @@ HRESULT characterSelectScene::init()
 	IMAGEMANAGER->findImage("셀렉트제로")->setFrameX(_zeroIndex);
 	_rockManIndex = 0; //프레임용
 	_indexCount = 0; //프레임속도 조절용
+
+	SOUNDMANAGER->play("셀렉트아나운서");
 	return S_OK;
 }
 void characterSelectScene::release()
@@ -64,7 +66,7 @@ void characterSelectScene::charactorInput()
 		_selectUnit = 0;
 
 		IMAGEMANAGER->findImage("셀렉트제로")->setFrameX(_zeroIndex);
-
+		SOUNDMANAGER->play("셀렉트");
 
 	}
 	if (KEYMANAGER->isOnceKeyDown(VK_RIGHT) && (_selectUnit<2))
@@ -73,8 +75,7 @@ void characterSelectScene::charactorInput()
 		_rockManIndex = 0;
 		_selectUnit = 1;
 		IMAGEMANAGER->findImage("셀렉트얼티메이트록맨")->setFrameX(_rockManIndex);
-
-
+		SOUNDMANAGER->play("셀렉트");
 	}
 }
 
@@ -88,6 +89,7 @@ void characterSelectScene::sceneChange()
 	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
 	{
 		_isStart = true;
+		SOUNDMANAGER->play("플레이어확정");
 	}
 	if (_isStart)
 	{

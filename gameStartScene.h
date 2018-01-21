@@ -8,7 +8,9 @@ private:
 
 	int _count;
 
+	int _alpha;
 
+	bool _isStart;
 public:
 	gameStartScene();
 	~gameStartScene();

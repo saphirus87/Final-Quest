@@ -29,6 +29,9 @@ HRESULT playGround::init()
 
 	IMAGEMANAGER->addFrameImage("버튼", ".//sceneImage//button.bmp", 0, 0, 122, 62, 1, 2, true, RGB(255, 0, 255));
 
+	SOUNDMANAGER->addSound("셀렉트아나운서", ".//effectSound//playerSelect.wav", false, false);
+	SOUNDMANAGER->addSound("플레이어확정", ".//effectSound//playerClick.wav", false, false);
+	SOUNDMANAGER->addSound("셀렉트", ".//effectSound//selectSound.wav", false, false);
 
 	_select = new characterSelectScene;
 	_start = new gameStartScene;

@@ -16,6 +16,8 @@ HRESULT gameStartScene::init()
 {
 	_fadeIn = 0;
 	_count = 0;
+	_alpha = 255;
+	_isStart = false;
 
 	return S_OK;
 }
@@ -40,14 +42,24 @@ void gameStartScene::update()
 			_fadeIn = 0;
 		}
 	}
-	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
+	if (KEYMANAGER->isOnceKeyDown(VK_SPACE) && !_isStart)
 	{
-		SCENEMANAGER->changeScene("선택");
+		_isStart = true;
+		SOUNDMANAGER->play("플레이어확정");
+	}
+
+	if (_isStart)
+	{
+		_alpha -= 5;
+		if (_alpha <= 0)
+		{
+			SCENEMANAGER->changeScene("선택");
+		}
 	}
 }
 void gameStartScene::render() 
 {
-	IMAGEMANAGER->findImage("시작배경")->render(getMemDC());
+	IMAGEMANAGER->findImage("시작배경")->alphaRender(getMemDC(),_alpha);
 	IMAGEMANAGER->findImage("시작키")->alphaRender(getMemDC(), WINSIZEX / 2 - 250, WINSIZEY - 200, _fadeIn);
 
 }
