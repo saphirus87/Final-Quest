@@ -21,6 +21,8 @@ private:
 	mapSceneList _mLoadingSceneList;
 
 	DWORD _loadingThreadID;			//혹시 몰라 넣어놓는 쓰레드용 ID
+	
+	int _selectUnit;
 
 public:
 	sceneManager();
@@ -43,5 +45,8 @@ public:
 	//남발하면 안되는데, 구조상 왠지 1~2개정도는 해두면 좋을 것 같으면 해도됨
 	friend DWORD CALLBACK loadingThread(LPVOID prc);
 
+
+	int getUnitNum() { return _selectUnit; }
+	void setUnitNum(int unitNum) { _selectUnit = unitNum; }
 };
 
