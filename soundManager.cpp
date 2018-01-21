@@ -42,10 +42,6 @@ void soundManager::release()
 			{
 				if (_channel[i])_channel[i]->stop();
 			}
-			if (_sound != NULL)
-			{
-				if (_sound[i] != NULL) _sound[i]->release();
-			}
 		}
 	}
 
