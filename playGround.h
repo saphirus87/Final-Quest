@@ -1,12 +1,16 @@
 #pragma once
 #include "gameNode.h"
+#include "gameStartScene.h"
+#include "characterSelectScene.h"
+#include "gameScene.h"
 
 class playGround : public gameNode
 {
 private:
 	
-	gameNode* _select;
-	
+	gameNode* _start;	//Ω∫≈∏∆Æ æ¿
+	gameNode* _select;	//ºø∑∫∆Æ æ¿
+	gameNode* _mainGame; //∏ﬁ¿Œ æ¿
 
 public:
 	virtual HRESULT init(void);		//√ ±‚»≠ «‘ºˆ
