@@ -16,7 +16,7 @@ characterSelectScene::~characterSelectScene()
 HRESULT characterSelectScene::init()
 {
 	_alpha = 0;
-	_selectUnit = 0;
+	_selectUnit = 1;
 	_isStart = false;
 
 	_zeroIndex = IMAGEMANAGER->findImage("¼¿·ºÆ®Á¦·Î")->getMaxFrameX() - 1;//ÇÁ·¹ÀÓ¿ë
@@ -44,11 +44,11 @@ void characterSelectScene::update()
 }
 void characterSelectScene::render()	
 {
-	if (_selectUnit == 0)
+	if (_selectUnit == 1)
 	{
 		IMAGEMANAGER->alphaRender("¼¿·ºÆ®¾À·Ï¸Ç", CAMERAMANAGER->findImage("¼¿·ºÆ®")->getMemDC(), 255);
 	}
-	else if (_selectUnit == 1)
+	else if (_selectUnit == 0)
 	{
 		IMAGEMANAGER->alphaRender("¼¿·ºÆ®¾ÀÁ¦·Î", CAMERAMANAGER->findImage("¼¿·ºÆ®")->getMemDC(), 255);
 	}
@@ -62,21 +62,26 @@ void characterSelectScene::render()
 
 void characterSelectScene::charactorInput()
 {
-	if (KEYMANAGER->isOnceKeyDown(VK_LEFT) && (_selectUnit>0))
+	if (KEYMANAGER->isOnceKeyDown(VK_LEFT))
 	{
 		_rockManIndex = 0;
 		_zeroIndex = IMAGEMANAGER->findImage("¼¿·ºÆ®Á¦·Î")->getMaxFrameX()-1;
-		_selectUnit = 0;
+	
+		_selectUnit = 1;
 
 		IMAGEMANAGER->findImage("¼¿·ºÆ®Á¦·Î")->setFrameX(_zeroIndex);
 		SOUNDMANAGER->play("¼¿·ºÆ®");
 
 	}
-	if (KEYMANAGER->isOnceKeyDown(VK_RIGHT) && (_selectUnit<2))
+
+
+	if (KEYMANAGER->isOnceKeyDown(VK_RIGHT))
 	{
 		_zeroIndex = IMAGEMANAGER->findImage("¼¿·ºÆ®Á¦·Î")->getMaxFrameX();
 		_rockManIndex = 0;
-		_selectUnit = 1;
+		
+		_selectUnit = 0;
+		
 		IMAGEMANAGER->findImage("¼¿·ºÆ®¾óÆ¼¸ÞÀÌÆ®·Ï¸Ç")->setFrameX(_rockManIndex);
 		SOUNDMANAGER->play("¼¿·ºÆ®");
 	}
@@ -114,7 +119,7 @@ void characterSelectScene::selectUnitFrame()
 	_indexCount++;
 
 
-	if (_selectUnit == 0)
+	if (_selectUnit == 1)
 	{
 		IMAGEMANAGER->findImage("¼¿·ºÆ®¾óÆ¼¸ÞÀÌÆ®·Ï¸Ç")->setFrameX(_rockManIndex);
 		if (_indexCount % 4 == 0)
@@ -127,7 +132,7 @@ void characterSelectScene::selectUnitFrame()
 			_rockManIndex = 1;
 		}
 	}
-	if (_selectUnit == 1)
+	if (_selectUnit == 0)
 	{
 		if (_indexCount % 4 == 0)
 		{
