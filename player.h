@@ -2,10 +2,27 @@
 #include "gameNode.h"
 #include "progressBar.h"
 
+enum playerDirection
+{
+	LEFT,
+	RIGHT
+};
+
+enum playerState
+{
+	PLAYER_RIGHT,
+	PLAYER_LEFT,
+	PLAYER_JUMP,
+	PLAYER_IDLE
+};
+
 class player : public gameNode
 {
 protected:
 	progressBar* _hpBar;		//플레이어 체력
+
+	playerState _state;			//플레이어 상태
+	playerDirection _dir;		//왼쪽? 오른쪽?
 
 	image* _player;				//플레이어 이미지
 	RECT _rc;					//플레이어 렉트
@@ -18,8 +35,8 @@ protected:
 	int   _jumpTime;			//플레이어 점프시간
 	int   _jumpCount;			//플레이어 점프 횟수
 	bool  _isJump;				//플레이어 점프 했니?
-	
-
+	bool  _isLeft;				//플레이어 왼쪽으로 이동햇뉘?
+	bool  _isRight;				//플레이어 오른쪽으로 이동햇뉘?
 	//플레이어 프레임 이미지를 위한 변수
 	int _currentFrameX;
 	int _currentFrameY;
@@ -38,8 +55,8 @@ protected:
 	//WINDOW_SIZE 1280 X 720
 
 public:
-	//				이미지 키값        , 이미지 파일   , 렉트좌표 x,y    ,               체력           , 체력바 가로길이, 체력바 세로길이
-	HRESULT init(const char* imageName, string strKey, float x, float y, float currentHP, float maxHP, float width, float height);
+	////				이미지 키값        , 이미지 파일   , 렉트좌표 x,y    ,               체력           , 체력바 가로길이, 체력바 세로길이
+	HRESULT init();
 	void release();
 	void update();
 	void render();
