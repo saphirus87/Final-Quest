@@ -28,6 +28,7 @@ HRESULT enemy::init(const char* imageName, POINT position, int Lx, int Rx, float
 
 	_frameX = 0;
 	_frameY = 0;
+	_chaseX = _chaseY = 0;
 	_count = 0;
 
 	//_find = SPOA_FIND;
@@ -40,7 +41,7 @@ void enemy::release(void)
 }
 void enemy::update(void)
 {
-	_distance = getDistance(_ptMouse.x, _ptMouse.y, _x, _y);
+	_distance = getDistance(_chaseX, _chaseY, _x, _y);
 
 	//ÁÂ¿ì º¯µ¿ ÆÇ´Ü
 	if (_x < _Lx)
@@ -65,14 +66,14 @@ void enemy::update(void)
 	}
 
 	// Å½»ö
-	if (_distance <= _find && _ptMouse.x < _x)
+	if (_distance <= _find && _chaseX < _x)
 	{
 		_LRchange = true;
 
 
 
 	}
-	if (_distance <= _find && _ptMouse.x > _x)
+	if (_distance <= _find && _chaseX > _x)
 	{
 		_LRchange = false;
 	}

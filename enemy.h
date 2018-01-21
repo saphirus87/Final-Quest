@@ -37,6 +37,8 @@ protected:
 
 	int _frameX, _frameY;
 
+	int _chaseX, _chaseY;
+
 	frameDirection _frameDirection;
 
 public:
@@ -47,4 +49,6 @@ public:
 	void release(void);
 	virtual void update(void);
 	virtual void render(HDC hdc);
+
+	inline void setChasePt(int chaseX, int chaseY) { _chaseX = chaseX; _chaseY = chaseY; }
 };
