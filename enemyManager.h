@@ -26,17 +26,11 @@ private:
 public:
 	enemyManager();
 	~enemyManager();
-
-
-
 	
 	HRESULT init(void);
 	void release(void);
 	void update(void);
 	void render(void);
-
-
-
 };
 
 
