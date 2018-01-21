@@ -9,6 +9,7 @@ enum ULTIMATESTATE
 	ULTIMATE_RIGHT,
 	ULTIMATE_NONE
 };
+
 struct GUN
 {
 	image* img;
@@ -16,6 +17,7 @@ struct GUN
 	int x, y;
 	float angle;
 };
+
 class ultimate : public player
 {
 private:

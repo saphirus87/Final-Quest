@@ -43,7 +43,7 @@ void ultimate::update()
 	move();	
 	
 	//ÃÑ¾Ë
-	cout << vGun.size() << endl;
+	//cout << vGun.size() << endl;
 	if (KEYMANAGER->isOnceKeyDown('X'))
 	{
 		isAttack = true;
@@ -75,8 +75,13 @@ void ultimate::render(HDC hdc)
 	case ULTIMATE_SKILL:
 		break;
 		//ºÒ¸´ ÀÌ¹ÌÁö
+	};
+	RectangleMake(getMemDC(), gun.x, gun.y, 10, 10);
+
+	for (int i = 0; i < vGun.size(); ++i)
+	{
+		EllipseMakeCenter(hdc, vGun[i].x, vGun[i].y, 10, 10);
 	}
-		RectangleMake(getMemDC(), gun.x, gun.y, 10, 10);
 }
 
 void ultimate::jump()
@@ -189,11 +194,18 @@ void ultimate::bullet_fire()
 	if (isAttack)
 	{
 		// img = add
-		gun.x = _x;
-		gun.y = _y;
+		gun.y = _y + 17;
 		gun.rc_gun = RectMake(gun.x, gun.y, 10, 10);
-		if (IMAGEMANAGER->findImage("ultimate_move")->getFrameY() == 0) angle = 0;
-		else if (IMAGEMANAGER->findImage("ultimate_move")->getFrameY() == 1) angle = PI;
+		if (IMAGEMANAGER->findImage("ultimate_move")->getFrameY() == 0)
+		{
+			gun.x = _x + 35;
+			gun.angle = 0;
+		}
+		else if (IMAGEMANAGER->findImage("ultimate_move")->getFrameY() == 1)
+		{
+			gun.x = _x + 13;
+			gun.angle = PI;
+		}
 
 		vGun.push_back(gun);
 		isAttack = false;
@@ -205,7 +217,7 @@ void ultimate::bullet_move()
 {
 	for (viGun = vGun.begin(); viGun != vGun.end();)
 	{
-		gun.x += 10 * cosf(angle);
+		viGun->x += 10 * cosf(viGun->angle);
 		viGun++;
 	}
 }

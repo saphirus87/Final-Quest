@@ -23,11 +23,22 @@ HRESULT gameScene::init()
 	_loofx = 0;
 	camerax = 0;
 	cameray = 0;
-	_zero = new zero;
-	_zero->init();
 
 	_em = new enemyManager;
 	_em->init();
+
+	Character = SCENEMANAGER->getUnitNum();
+
+	if (Character)
+	{
+		_player = new ultimate;
+	}
+	else
+	{
+		_player = new zero;
+	}
+	_player->init();
+
 
 	return S_OK;
 }
@@ -41,9 +52,9 @@ void gameScene::update()
 {
 	if (_alpha < 255)_alpha += 5;
 	++_loofx;
-	_zero->update();
-	camerax = *_zero->getPlayerX() - WINSIZEX / 2;
-	//cameray = *_zero->getPlayerY() - WINSIZEY / 2;
+
+	_player->update();
+	camerax = *_player->getPlayerX() - WINSIZEX / 2;
 
 	if (KEYMANAGER->isStayKeyDown(VK_DOWN))
 	{
@@ -60,13 +71,13 @@ void gameScene::update()
 	if (camerax > 2095 - WINSIZEX)camerax = 2095 - WINSIZEX;
 	if (cameray > 1410 - WINSIZEY)cameray = 1410 - WINSIZEY;
 
-	for (; crash(_zero->getPlayerX(), _zero->getPlayerY());)
+	for (; crash(_player->getPlayerX(), _player->getPlayerY());)
 	{
-		_zero->Gravityzero();
-		_zero->Jumpzero();
+		_player->Gravityzero();
+		_player->Jumpzero();
 	}
 
-	_em->chaseplayer(*_zero->getPlayerX(), *_zero->getPlayerY());
+	_em->chaseplayer(*_player->getPlayerX(), *_player->getPlayerY());
 	_em->update();
 }
 void gameScene::render() 
@@ -75,7 +86,7 @@ void gameScene::render()
 	IMAGEMANAGER->findImage("바닥배경")->loopRender(CAMERAMANAGER->findImage("스테이지카메라")->getMemDC(), &RectMake(0, 1224, 2095, 186), _loofx, 0);
 	IMAGEMANAGER->findImage("스테이지바닥")->render(CAMERAMANAGER->findImage("스테이지카메라")->getMemDC());
 
-	_zero->render(CAMERAMANAGER->findImage("스테이지카메라")->getMemDC());
+	_player->render(CAMERAMANAGER->findImage("스테이지카메라")->getMemDC());
 
 	_em->render(CAMERAMANAGER->findImage("스테이지카메라")->getMemDC());
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "gameNode.h"
 #include "zero.h"
+#include "ultimate.h"
 #include "enemyManager.h"
 
 class gameScene : public gameNode
@@ -10,9 +11,11 @@ private:
 	int _alpha;
 	int _loofx;
 
+	bool Character;
+
 	enemyManager* _em;
 
-	zero* _zero;
+	player* _player;
 
 public:
 	gameScene();

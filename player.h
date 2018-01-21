@@ -60,6 +60,7 @@ public:
 	void release();
 	void update();
 	void render();
+	virtual void render(HDC hdc) {};
 
 	void playerAtk();		//공격 함수
 	void playerMove();		//움직임 함수
