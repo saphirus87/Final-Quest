@@ -27,7 +27,7 @@ void spoa::update(void)
 {
 	enemy::update();
 }
-void spoa::render(void)																  
+void spoa::render(HDC hdc)																  
 {
-	enemy::render();
+	enemy::render(hdc);
 }

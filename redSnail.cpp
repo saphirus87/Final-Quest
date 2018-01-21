@@ -28,7 +28,7 @@ void redSnail::update(void)
 	enemy::update();
 }
 
-void redSnail::render(void)
+void redSnail::render(HDC hdc)
 {
-	enemy::render();
+	enemy::render(hdc);
 }

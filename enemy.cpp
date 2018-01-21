@@ -85,7 +85,7 @@ void enemy::update(void)
 		else _frameX = 0;
 	}
 }
-void enemy::render(void)
+void enemy::render(HDC hdc)
 {
-	_img->frameRender(getMemDC(), _x, _y, _frameX, _frameDirection);
+	_img->frameRender(hdc, _x, _y, _frameX, _frameDirection);
 }

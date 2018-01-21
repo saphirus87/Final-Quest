@@ -15,6 +15,6 @@ public:
 
 	virtual HRESULT init(const char* imageName, POINT position, int Lx, int Rx, float speed);
 	virtual void update(void);
-	virtual void render(void);
+	virtual void render(HDC hdc);
 };
 

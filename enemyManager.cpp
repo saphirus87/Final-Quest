@@ -51,17 +51,16 @@ void enemyManager::update(void)
 	//_snail->update();
 	
 }
-void enemyManager::render(void)	
+void enemyManager::render(HDC hdc)	
 {
 	for (int i = 0; i < _vRedSnail.size(); ++i)
 	{
-		_vRedSnail[i]->render();
+		_vRedSnail[i]->render(hdc);
 	}
 	for (int i = 0; i < _vSpoa.size(); ++i)
 	{
-		_vSpoa[i]->render();
+		_vSpoa[i]->render(hdc);
 	}
-	//_snail->render();
 }
 
 
