@@ -192,6 +192,9 @@ void ultimate::bullet_fire()
 		gun.x = _x;
 		gun.y = _y;
 		gun.rc_gun = RectMake(gun.x, gun.y, 10, 10);
+		if (IMAGEMANAGER->findImage("ultimate_move")->getFrameY() == 0) angle = 0;
+		else if (IMAGEMANAGER->findImage("ultimate_move")->getFrameY() == 1) angle = PI;
+
 		vGun.push_back(gun);
 		isAttack = false;
 		ultimate_state = ULTIMATE_AT;
@@ -200,20 +203,9 @@ void ultimate::bullet_fire()
 
 void ultimate::bullet_move()
 {
-	if (IMAGEMANAGER->findImage("ultimate_move")->getFrameY() == 0) //라이트일때
+	for (viGun = vGun.begin(); viGun != vGun.end();)
 	{
-		for (viGun = vGun.begin(); viGun != vGun.end();)
-		{
-			gun.x += 10;
-			viGun++;
-		}
-	}
-	if (IMAGEMANAGER->findImage("ultimate_move")->getFrameY() == 1) //레프트일때
-	{
-		for (viGun = vGun.begin(); viGun != vGun.end();)
-		{
-			gun.x -= 10;
-			viGun++;
-		}
+		gun.x += 10 * cosf(angle);
+		viGun++;
 	}
 }

@@ -14,6 +14,7 @@ struct GUN
 	image* img;
 	RECT rc_gun;
 	int x, y;
+	float angle;
 };
 class ultimate : public player
 {
